@@ -1,0 +1,32 @@
+.graph {
+    position: relative;
+    box-sizing: border-box;
+    width: 1440px;
+    height: 40px;
+    background-color: #1c124b;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.graph__morning-twilight,
+.graph__sun-day,
+.graph__evening-twilight {
+    position: absolute;
+    box-sizing: border-box;
+    height: 40px;
+    transition-property: left, right;
+    transition-duration: 0.4s;
+    transition-timing-function: linear;
+}
+
+.graph__morning-twilight {
+    background: linear-gradient(90deg, transparent, #3dcdec);
+}
+
+.graph__sun-day {
+    background-color: #3dcdec;
+}
+
+.graph__evening-twilight {
+    background: linear-gradient(90deg, #3dcdec, transparent);
+}
