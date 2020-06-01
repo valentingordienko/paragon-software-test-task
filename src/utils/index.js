@@ -1,0 +1,1 @@
+export {secondsToHms} from "./secondsToHms";
