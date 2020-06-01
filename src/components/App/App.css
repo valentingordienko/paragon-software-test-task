@@ -3,6 +3,6 @@
   align-items: center;
   justify-items: center;
   background-color: #1c124b;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
 }
