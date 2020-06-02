@@ -6,3 +6,14 @@
   min-height: 100vh;
   padding: 20px;
 }
+
+.app__unsupported-geo {
+  max-width: 800px;
+  padding: 20px;
+  font-size: 40px;
+  background-color: #dddddd;
+  color: red;
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+}

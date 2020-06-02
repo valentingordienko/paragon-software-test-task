@@ -4,9 +4,15 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
+/* Проверка выполняется здесь для улучшения UX
+ * В том случае если функциональность геолокации отсутствует в браузере, пользователь сразуже увидит предупреждение
+ * и прилоджение не будет лищний разщ выполнять не нудную логику.
+ */
+const hasGeolocationApi = navigator.geolocation;
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App hasGeolocationApi={hasGeolocationApi}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

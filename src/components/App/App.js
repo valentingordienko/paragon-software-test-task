@@ -1,11 +1,11 @@
-import React, {useCallback, useState, useEffect, useRef} from "react";
+import React, {useCallback, useState, useEffect, useRef, memo} from "react";
 import apiRequest from "../../model/api";
 import SunWidget from "../SunWidget";
 import "./App.css";
 
 const maimCssClass = "app"
 
-const dayLength = 86400000;
+const dayLength = 86400000; //ms
 const buttons = [
 	{
 		caption: '-7 days',
@@ -29,7 +29,7 @@ const buttons = [
 	}
 ]
 
-function App() {
+function App({hasGeolocationApi}) {
 
 	const geolocation = useRef({lat: null, lng: null});
 	const targetTimestamp = useRef(0);
@@ -77,18 +77,18 @@ function App() {
 	}, [])
 
 	useEffect(() => {
-		if (!navigator.geolocation) {
-			// status.textContent = 'Geolocation is not supported by your browser';
-		} else {
-			console.log(navigator.geolocation);
-			// status.textContent = 'Locating…';
+		if (hasGeolocationApi) {
 			navigator.geolocation.getCurrentPosition(handleGeolocationGettingSuccess, handleGeolocationGettingError);
 		}
-	}, [handleGeolocationGettingSuccess, handleGeolocationGettingError])
+	}, [hasGeolocationApi, handleGeolocationGettingSuccess, handleGeolocationGettingError])
 
 	return (
 		<div className={maimCssClass}>
-			<SunWidget dateSunData={sunWidgetData} buttons={buttons} onDayNavigate={handleDayNavigation}/>
+			{
+				hasGeolocationApi
+					? <SunWidget dateSunData={sunWidgetData} buttons={buttons} onDayNavigate={handleDayNavigation}/>
+					: <p className={`${maimCssClass}__unsupported-geo`}>Geolocation is not supported by your browser</p>
+			}
 		</div>
 	);
 }
