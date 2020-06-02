@@ -28,10 +28,10 @@ function SunWidget ({dateSunData, buttons, onDayNavigate}) {
 
 	return <div className={mainCssClass}>
 		<div className={`${mainCssClass}__item ${mainCssClass}__day-data`}>
-			<div>Day: {formattedDate}</div>
-			<div>Sunrise: {formattedSunrise}</div>
-			<div>Sunset: {formattedSunset}</div>
-			<div>Length: {formattedLength}</div>
+			<div className={`${mainCssClass}__day-data-item`}>Day: {formattedDate}</div>
+			<div className={`${mainCssClass}__day-data-item`}>Sunrise: {formattedSunrise}</div>
+			<div className={`${mainCssClass}__day-data-item`}>Sunset: {formattedSunset}</div>
+			<div className={`${mainCssClass}__day-data-item`}>Length: {formattedLength}</div>
 		</div>
 		<div className={`${mainCssClass}__item ${mainCssClass}__buttons`}>
 			{buttons.map((item)=>{

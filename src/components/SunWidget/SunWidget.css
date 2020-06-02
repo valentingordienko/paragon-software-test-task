@@ -22,6 +22,14 @@
     text-align: center;
 }
 
+.sun-widget__day-data-item {
+    margin-bottom: 5px;
+}
+
+.sun-widget__day-data-item:last-of-type {
+    margin-bottom: 0;
+}
+
 .sun-widget__buttons {
     display: flex;
     justify-content: center;
