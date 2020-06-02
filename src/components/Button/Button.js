@@ -12,7 +12,7 @@ function Button ({className, id, caption, onClick}) {
 		}
 	}, [id, onClick])
 
-	return <button className={`${className} ${mainCssClass}`} onClick={handleClick}>{caption}</button>
+	return <button className={`${className || ''} ${mainCssClass}`} onClick={handleClick}>{caption}</button>
 }
 
 export default memo(Button);

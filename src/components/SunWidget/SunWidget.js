@@ -6,7 +6,7 @@ import "./SunWidget.css";
 
 const mainCssClass = "sun-widget";
 
-function SunWidget ({dateSunData, buttons, onDayNavigate}) {
+function SunWidget ({className, dateSunData, buttons, onDayNavigate}) {
 	const {
 		date,
 		sunrise,
@@ -26,7 +26,7 @@ function SunWidget ({dateSunData, buttons, onDayNavigate}) {
 		return {sunrise, sunset, civilTwilightBegin, civilTwilightEnd};
 	}, [sunrise, sunset, civilTwilightBegin, civilTwilightEnd])
 
-	return <div className={mainCssClass}>
+	return <div className={`${className || ''} ${mainCssClass}`}>
 		<div className={`${mainCssClass}__item ${mainCssClass}__day-data`}>
 			<div className={`${mainCssClass}__day-data-item`}>Day: {formattedDate}</div>
 			<div className={`${mainCssClass}__day-data-item`}>Sunrise: {formattedSunrise}</div>
