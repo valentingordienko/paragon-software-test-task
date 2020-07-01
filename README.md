@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Тестовое задание для позиции Frontend-разработчик
 
-## Available Scripts
+Сервис [sunrise-sunset.org](https://sunrise-sunset.org/api) предоставляет астрономические данные о времени рассвета
+и заката, долготе дня и начале/конце сумерек для заданной широты и долготы.
 
-In the project directory, you can run:
+Необходимо создать простую визуализацию этих данных для одной даты согласно макету ниже.
 
-### `yarn start`
+### Техническое задание:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* На странице должны отображаться текущая дата, время рассвета и заката, долгота дня
+* При первой загрузке страницы должны отображаться данные для текущего
+  местоположения (из API геолокации браузера) и текущего дня
+* С помощью кнопок на странице можно менять дату на 1 или 7 дней вперед или назад
+* Гражданские сумерки (civil_twilight) отображаются градиентным переходом
+* При смене даты диаграмма должна анимироваться
+* Для простоты задачи считаем, что 1 минута на диграмме равна 1 пикселю
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Требования к проекту:
 
-### `yarn test`
+* Проект должен быть создан с помощью `create-react-app`
+* Версия `JavaScript ES6` и выше, либо `Typescript 3+`
+* Не должны использоваться никакие дополнительные внешние пакеты
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Макет
+![api.sunrise-sunset.org](./layout.png)
