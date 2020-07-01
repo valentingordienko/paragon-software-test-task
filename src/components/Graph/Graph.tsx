@@ -4,7 +4,17 @@ import "./Graph.css";
 
 const mainCssClass = "graph";
 
-function Graph ({className, data}) {
+interface IGraphProps {
+	className?: string,
+	data: {
+		sunrise: string | number,
+		sunset: string | number,
+		civilTwilightBegin: string | number
+		civilTwilightEnd: string | number,
+	}
+}
+
+const Graph: React.FC<IGraphProps> = ({className, data}) => {
 
 	const {sunrise, sunset, civilTwilightBegin, civilTwilightEnd} = data;
 	const sunriseData = new Date(sunrise);

@@ -2,17 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
+import {buttons} from "./model/config";
 import * as serviceWorker from './serviceWorker';
 
 /* Проверка выполняется здесь для улучшения UX
  * В том случае если функциональность геолокации отсутствует в браузере, пользователь сразуже увидит предупреждение
  * и прилоджение не будет лищний разщ выполнять не нудную логику.
  */
-const hasGeolocationApi = navigator.geolocation;
+const geolocationApi: Geolocation = navigator.geolocation;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App hasGeolocationApi={hasGeolocationApi}/>
+    <App geolocationApi={geolocationApi} buttons={buttons}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -4,9 +4,16 @@ import "./Button.css";
 
 const mainCssClass = "button";
 
-function Button ({className, id, caption, onClick}) {
+interface IButtonProps {
+	className?: string
+	caption: string,
+	id: string,
+	onClick?: (id: string) => void
+}
 
-	const handleClick = useCallback(()=>{
+const Button: React.FC<IButtonProps> = ({className, id, caption, onClick}) => {
+
+ 	const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement>)=>{
 		if(onClick) {
 			onClick(id);
 		}
