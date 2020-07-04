@@ -1,20 +1,20 @@
 import React, {memo, useMemo} from "react";
 import {secondsToHms} from "../../utils";
 import Button from "../Button";
-import Graph from "../Graph";
-import {IDateSunData, IButtonData} from "../../definitions";
+import Graph, {TGraphData} from "../Graph";
+import {TDateSunData, TButton, TTime} from "../../definitions";
 import "./SunWidget.css";
 
 const mainCssClass = "sun-widget";
 
-interface ISunWidgetProps {
+export type TSunWidgetProps = {
     className?: string,
-    dateSunData: IDateSunData,
-    buttons: IButtonData[],
+    dateSunData: TDateSunData,
+    buttons: Array<TButton>,
     onDayNavigate: (buttonId: string) => void
 }
 
-const SunWidget: React.FC<ISunWidgetProps> = ({className, dateSunData, buttons, onDayNavigate}) => {
+const SunWidget: React.FC<TSunWidgetProps> = ({className, dateSunData, buttons, onDayNavigate}) => {
     const {
         date,
         sunrise,
@@ -23,14 +23,14 @@ const SunWidget: React.FC<ISunWidgetProps> = ({className, dateSunData, buttons, 
         civil_twilight_begin: civilTwilightBegin,
         civil_twilight_end: civilTwilightEnd
     } = dateSunData;
-    const dayLengthData = dayLength ? secondsToHms(dayLength) : null;
-    const sunriseData = sunrise ? new Date(sunrise) : null;
-    const sunsetData = sunrise ? new Date(sunset) : null;
-    const formattedDate = date ? `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}` : '---';
-    const formattedSunrise = sunriseData ? `${sunriseData.getHours()}:${sunriseData.getMinutes()}` : '---';
-    const formattedSunset = sunsetData ? `${sunsetData.getHours()}:${sunsetData.getMinutes()}` : '---';
-    const formattedLength = dayLengthData ? `${dayLengthData.hours}:${dayLengthData.minutes}` : '---';
-    const graphData = useMemo(() => {
+    const dayLengthData: TTime | null = secondsToHms(dayLength);
+    const sunriseData: Date | null = new Date(sunrise);
+    const sunsetData: Date | null = new Date(sunset);
+    const formattedDate: string = date ? `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}` : '---';
+    const formattedSunrise: string = sunriseData ? `${sunriseData.getHours()}:${sunriseData.getMinutes()}` : '---';
+    const formattedSunset: string = sunsetData ? `${sunsetData.getHours()}:${sunsetData.getMinutes()}` : '---';
+    const formattedLength: string = dayLengthData ? `${dayLengthData.hours}:${dayLengthData.minutes}` : '---';
+    const graphData: TGraphData = useMemo(() => {
         return {sunrise, sunset, civilTwilightBegin, civilTwilightEnd};
     }, [sunrise, sunset, civilTwilightBegin, civilTwilightEnd])
 

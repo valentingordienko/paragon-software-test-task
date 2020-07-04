@@ -1,9 +1,10 @@
-import {IApiData, IApiResponse, IApiResult} from "../definitions";
+import {TApiData, TApiResponse, TApiResult} from "../definitions";
 
-export default async function ({lat, lng, date = 'today'}: IApiData): Promise<IApiResult | void> {
+export default async function ({lat, lng, date = 'today'}: TApiData): Promise<TApiResult | void> {
     try {
+        console.log(date);
         const response: Response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=${date}&formatted=0`)
-        const data: IApiResponse = await response.json();
+        const data: TApiResponse = await response.json();
         if (data.status === "OK") {
             return data.results;
         } else {

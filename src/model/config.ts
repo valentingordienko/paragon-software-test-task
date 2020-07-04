@@ -1,6 +1,6 @@
-import {IButtonData} from "../definitions";
+import {TButton} from "../definitions";
 
-export const buttons: IButtonData[] = [
+export const buttons: Array<TButton> = [
     {
         caption: '-7 days',
         multiplier: -7,

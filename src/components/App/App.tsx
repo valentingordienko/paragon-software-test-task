@@ -1,22 +1,22 @@
 import React, {useCallback, useState, useEffect, useRef, memo} from "react";
 import apiRequest from "../../model/api";
 import SunWidget from "../SunWidget";
-import {IDateSunData, IButtonData, AppGeo, IApiResult} from "../../definitions";
+import {TDateSunData, TButton, TAppGeo, TApiResult} from "../../definitions";
 import {dayLength} from "../../model/data";
 import "./App.css";
 
 const maimCssClass: string = "app"
 
-interface IAppProps {
+export type TAppProps = {
     geolocationApi: Geolocation,
-    buttons: IButtonData[]
+    buttons: Array<TButton>
 }
 
-const App: React.FC<IAppProps> = ({geolocationApi, buttons}) => {
+const App: React.FC<TAppProps> = ({geolocationApi, buttons}) => {
 
-    const geolocation = useRef<AppGeo>({lat: null, lng: null});
+    const geolocation = useRef<TAppGeo>({lat: null, lng: null});
     const targetTimestamp = useRef<number>(0);
-    const [sunWidgetData, setSunWidgetData] = useState<IDateSunData>({
+    const [sunWidgetData, setSunWidgetData] = useState<TDateSunData>({
         date: null,
         sunrise: '',
         sunset: '',
@@ -35,7 +35,7 @@ const App: React.FC<IAppProps> = ({geolocationApi, buttons}) => {
                 lng,
                 date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
             };
-            const result: IApiResult = await apiRequest(requestData) as IApiResult;
+            const result: TApiResult = await apiRequest(requestData) as TApiResult;
             setSunWidgetData({
                 ...result,
                 date

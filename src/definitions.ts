@@ -1,10 +1,10 @@
-export interface IApiData {
+export type TApiData = {
     lat: string,
     lng: string,
     date: string
 }
 
-export interface IApiResult {
+export type TApiResult = {
     sunrise: string,
     sunset: string,
     solar_noon: string,
@@ -17,12 +17,12 @@ export interface IApiResult {
     astronomical_twilight_end: string
 }
 
-export interface IApiResponse {
+export type TApiResponse = {
     status: string,
-    results: IApiResult
+    results: TApiResult
 }
 
-export interface IDateSunData {
+export type TDateSunData = {
     date: Date | null,
     sunrise: string,
     sunset: string,
@@ -31,18 +31,18 @@ export interface IDateSunData {
     civil_twilight_end: string
 }
 
-export interface IButtonData {
+export type TButton = {
     caption: string,
     multiplier: number,
     id: string
 }
 
-export interface AppGeo {
+export type TAppGeo = {
     lat: string | null,
     lng: string | null
 }
 
-export interface ITime {
+export type TTime = {
     hours: number,
     minutes: number,
     seconds: number

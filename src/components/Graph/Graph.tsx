@@ -1,20 +1,21 @@
 import React, {memo} from "react";
-
 import "./Graph.css";
 
 const mainCssClass = "graph";
 
-interface IGraphProps {
-	className?: string,
-	data: {
-		sunrise: string | number,
-		sunset: string | number,
-		civilTwilightBegin: string | number
-		civilTwilightEnd: string | number,
-	}
+export type TGraphData = {
+	sunrise: string,
+	sunset: string,
+	civilTwilightBegin: string
+	civilTwilightEnd: string,
 }
 
-const Graph: React.FC<IGraphProps> = ({className, data}) => {
+export type TGraphProps = {
+	className?: string,
+	data: TGraphData
+}
+
+const Graph: React.FC<TGraphProps> = ({className, data}) => {
 
 	const {sunrise, sunset, civilTwilightBegin, civilTwilightEnd} = data;
 	const sunriseData = new Date(sunrise);
