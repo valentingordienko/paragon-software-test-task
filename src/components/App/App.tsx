@@ -33,7 +33,7 @@ const App: React.FC<TAppProps> = ({geolocationApi, buttons}) => {
             const requestData = {
                 lat,
                 lng,
-                date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+                date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
             };
             const result: TApiResult = await apiRequest(requestData) as TApiResult;
             setSunWidgetData({
